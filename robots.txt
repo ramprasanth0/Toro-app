@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Replace with your custom domain once mapped
+Sitemap: https://ramprasanth0.github.io/toro-app/sitemap.xml

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toro — Global, AI-Corrected Dictation for Everyone</title>
+    <meta name="description"
+        content="Toro is a zero-latency, global keyboard-triggered voice-to-text desktop utility. Dictate naturally and watch your words auto-correct instantly in any application.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Background Glows -->
+    <div class="glow-bg glow-purple"></div>
+    <div class="glow-bg glow-cyan"></div>
+
+    <!-- Navigation Header -->
+    <header class="navbar" id="site-header">
+        <div class="nav-container">
+            <a href="#" class="nav-logo" id="nav-logo-link">
+                <span class="logo-icon"><img src="assets/icon.ico" alt="Toro Logo Icon" class="logo-img-icon"></span>
+                <span class="logo-text">Toro</span>
+            </a>
+            <nav class="nav-links" id="main-navigation">
+                <a href="#features" class="nav-item">Features</a>
+                <a href="#interactive-simulator" class="nav-item">Interactive Demo</a>
+                <a href="#installation" class="nav-item">Guide</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="https://github.com/ramprasanth0/toro-app" target="_blank" class="github-btn"
+                    id="github-nav-btn" aria-label="View on GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="#installation" class="cta-nav-btn" id="cta-header-download">Download</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section" id="hero">
+            <div class="hero-container">
+                <div class="badge-container">
+                    <span class="hero-badge"><i class="fa-solid fa-sparkles"></i> AI-Corrected Dictation for
+                        Professionals</span>
+                </div>
+                <h1 class="hero-title">
+                    Speak at the Speed of Thought.<br>
+                    <span class="gradient-text">Type at the Speed of Voice.</span>
+                </h1>
+                <p class="hero-subtitle">
+                    A zero-latency, global keyboard-shortcut voice utility. Press `Ctrl + Space` in any app, speak
+                    naturally, and watch it instantly paste, perfectly polished by Gemini AI.
+                </p>
+                <div class="hero-ctas">
+                    <a href="#installation" class="hero-cta-primary" id="cta-hero-download">
+                        <i class="fa-brands fa-windows"></i> Download Toro.exe
+                    </a>
+                    <a href="#interactive-simulator" class="hero-cta-secondary" id="cta-hero-demo">
+                        Try Live Demo <i class="fa-solid fa-arrow-down"></i>
+                    </a>
+                </div>
+                <div class="hero-metrics">
+                    <div class="metric-card">
+                        <span class="metric-num">3-4x</span>
+                        <span class="metric-label">Faster than Typing</span>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="metric-card">
+                        <span class="metric-num">Sub-Second</span>
+                        <span class="metric-label">Correction Speed</span>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="metric-card">
+                        <span class="metric-num">100%</span>
+                        <span class="metric-label">Privacy Controlled</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Simulator Section -->
+        <section class="simulator-section" id="interactive-simulator">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge">Interactive Sandbox</span>
+                    <h2 class="section-title">See the AI Correction Layer in Action</h2>
+                    <p class="section-description">Traditional dictation tools struggle with technical syntax and
+                        punctuation. Toro is built for clean, intelligent typing. Choose a sample and play the recording
+                        to see the difference.</p>
+                </div>
+
+                <div class="simulator-widget">
+                    <div class="simulator-tabs">
+                        <button class="sim-tab active" data-sample="1" id="tab-sample-1">
+                            <i class="fa-solid fa-laptop-code"></i> Technical Prose
+                        </button>
+                        <button class="sim-tab" data-sample="2" id="tab-sample-2">
+                            <i class="fa-solid fa-database"></i> Database SQL
+                        </button>
+                        <button class="sim-tab" data-sample="3" id="tab-sample-3">
+                            <i class="fa-solid fa-code-commit"></i> Git & Slack
+                        </button>
+                    </div>
+
+                    <div class="simulator-body">
+                        <!-- Left Panel: Input Audio Stream -->
+                        <div class="sim-panel sim-input-panel">
+                            <div class="panel-header">
+                                <span class="panel-title"><i class="fa-solid fa-microphone"></i> Spoken Audio
+                                    Input</span>
+                                <span class="audio-timer" id="audio-duration">00:00</span>
+                            </div>
+                            <div class="audio-visualizer-box">
+                                <div class="visualizer-bars" id="visualizer-waves">
+                                    <span class="bar"></span><span class="bar"></span><span class="bar"></span><span
+                                        class="bar"></span><span class="bar"></span><span class="bar"></span><span
+                                        class="bar"></span><span class="bar"></span><span class="bar"></span><span
+                                        class="bar"></span><span class="bar"></span><span class="bar"></span><span
+                                        class="bar"></span><span class="bar"></span><span class="bar"></span>
+                                </div>
+                                <p class="spoken-transcript" id="spoken-text-display">"as per the rfc this function
+                                    takes an optional callback and handles edge cases where input is null"</p>
+                            </div>
+                            <div class="panel-actions">
+                                <button class="play-audio-btn" id="play-sample-trigger">
+                                    <i class="fa-solid fa-play"></i> Play Voice Recording
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Right Panel: Output Editor -->
+                        <div class="sim-panel sim-output-panel">
+                            <div class="panel-header">
+                                <span class="panel-title"><i class="fa-solid fa-terminal"></i> Auto-Pasted Technical
+                                    Output</span>
+                                <span class="copy-status" id="paste-status-indicator">Idle</span>
+                            </div>
+                            <div class="editor-mockup">
+                                <div class="editor-line-numbers">
+                                    <span>1</span><span>2</span><span>3</span>
+                                </div>
+                                <div class="editor-content-area">
+                                    <p class="editor-pasted-text" id="editor-result-text">// Ready for dictation. Click
+                                        Play on the left panel...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature Grid Section -->
+        <section class="features-section" id="features">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge">Powerhouse Capabilities</span>
+                    <h2 class="section-title">Designed for Everyday Workflows</h2>
+                    <p class="section-description">Toro is engineered for responsiveness, integrating advanced speech
+                        recognition and semantic formatting into a single key shortcut.</p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="card-icon-container purple-tint">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                        <h3 class="card-title">Boost Productivity</h3>
+                        <p class="card-text">Draft technical documentations, emails, slack messages, and logs 3x to 4x
+                            faster simply by speaking naturally.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="card-icon-container blue-tint">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        </div>
+                        <h3 class="card-title">AI Punctuation Layer</h3>
+                        <p class="card-text">Intelligent auto-correction fixes grammar, places punctuation, removes
+                            filler words, and styles specialized technical language.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="card-icon-container cyan-tint">
+                            <i class="fa-solid fa-keyboard"></i>
+                        </div>
+                        <h3 class="card-title">Universal OS Hotkey</h3>
+                        <p class="card-text">Trigger dictation with a global keyboard shortcut (`Ctrl+Space`) in any
+                            application on your system—no mouse clicks required.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="card-icon-container orange-tint">
+                            <i class="fa-solid fa-box-archive"></i>
+                        </div>
+                        <h3 class="card-title">Seamless Audio Buffer</h3>
+                        <p class="card-text">Intelligent background audio buffers ensure that even if your connection
+                            stutters temporarily, no part of your recording is lost.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="card-icon-container pink-tint">
+                            <i class="fa-solid fa-ear-listen"></i>
+                        </div>
+                        <h3 class="card-title">Clear Audio Cues</h3>
+                        <p class="card-text">Comforting, low-latency acoustic notifications announce the exact opening
+                            and closing of the recording session.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="card-icon-container green-tint">
+                            <i class="fa-solid fa-sliders"></i>
+                        </div>
+                        <h3 class="card-title">Adjustable AI Modes</h3>
+                        <p class="card-text">Right-click the system tray icon to switch between Fast, Balanced, and
+                            Accurate correction speeds on the fly.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Installation & Configuration Guide -->
+        <section class="guide-section" id="installation">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge">Developer Quickstart</span>
+                    <h2 class="section-title">Get Toro Running in 2 Minutes</h2>
+                    <p class="section-description">Setting up Toro locally is straightforward. Grab the binary,
+                        configure your keys, and activate.</p>
+                </div>
+
+                <div class="guide-steps">
+                    <div class="guide-step">
+                        <div class="step-circle">1</div>
+                        <div class="step-info">
+                            <h3>Download Release Binary</h3>
+                            <p>Download the standalone <code>Toro.exe</code> from the releases page and save it in a
+                                folder of your choice.</p>
+                        </div>
+                    </div>
+
+                    <div class="guide-step">
+                        <div class="step-circle">2</div>
+                        <div class="step-info">
+                            <h3>Setup Environment Keys</h3>
+                            <p>Create a <code>.env</code> file in the <strong>exact same folder</strong> as your
+                                <code>Toro.exe</code>. Populate it with your API credentials:</p>
+                            <div class="code-editor-box">
+                                <div class="code-header">
+                                    <span>.env</span>
+                                    <button class="copy-code-btn"
+                                        onclick="navigator.clipboard.writeText('DEEPGRAM_API_KEY=your_key_here\nGEMINI_API_KEY=your_key_here'); alert('Copied to clipboard!')"
+                                        aria-label="Copy code block">Copy</button>
+                                </div>
+                                <pre><code>DEEPGRAM_API_KEY=your_deepgram_api_key_here
+GEMINI_API_KEY=your_gemini_api_key_here</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="guide-step">
+                        <div class="step-circle">3</div>
+                        <div class="step-info">
+                            <h3>Launch and Dictate</h3>
+                            <p>Double-click <code>Toro.exe</code>. Look for the Toro icon in your taskbar system tray.
+                                Focus your text area, press and hold <strong><code>Ctrl + Space</code></strong>, speak
+                                naturally, and release!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <span class="footer-logo"><img src="assets/icon.ico" alt="Toro Logo Icon"
+                        class="logo-img-icon footer-logo-img"> Toro<span class="logo-accent">.ai</span></span>
+                <p>Speak at the speed of thought. Beautiful, AI-corrected global dictation designed for technical
+                    writing and communication.</p>
+            </div>
+            <div class="footer-right">
+                <div class="footer-col">
+                    <h4>Product</h4>
+                    <a href="#features">Features</a>
+                    <a href="#interactive-simulator">Live Demo</a>
+                    <a href="#installation">Downloads</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Community</h4>
+                    <a href="https://github.com/ramprasanth0/toro-app" target="_blank">GitHub Repository</a>
+                    <a href="https://github.com/ramprasanth0/toro-app/releases" target="_blank">Releases</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Toro. MIT License. Built for creators and developers.</p>
+            <a href="https://github.com/ramprasanth0/toro-app" class="github-footer-link"
+                aria-label="View Project on GitHub"><i class="fab fa-github"></i> GitHub</a>
+        </div>
+    </footer>
+
+    <!-- Script -->
+    <script src="app.js"></script>
+</body>
+
+</html>

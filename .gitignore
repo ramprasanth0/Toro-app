@@ -1,0 +1,14 @@
+# System Files
+.DS_Store
+Thumbs.db
+
+# IDE Files
+.vscode/
+.idea/
+
+# Local Dev/Build Files
+dist/
+build/
+node_modules/
+.env
+*.log
