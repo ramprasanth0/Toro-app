@@ -29,10 +29,14 @@ Most operating system dictation tools are built for general-purpose text and str
    Go to the [Releases](https://github.com/ramprasanth0/toro-app/releases) section and download the latest compiled `Toro.exe` executable for Windows.
    `Previous releases have been removed due to security reasons`
 
-2. **Launch**:
+2. **Windows SmartScreen (First Run)**:
+   Because Toro is a new application, Windows might display a blue **"Windows protected your PC"** popup. Toro is completely open-source and 100% safe to use.
+   - To proceed: Click **"More info"** and then click **"Run anyway"**.
+
+3. **Launch**:
    Double-click `Toro.exe`. Toro will run quietly in the system tray.
 
-3. **Dictate**:
+4. **Dictate**:
    - Focus any text entry box (IDE, editor, Slack, browser, etc.).
    - **Press and hold** `Ctrl + Space` and speak naturally.
    - **Release** the shortcut keys, and watch your words appear, perfectly corrected!
