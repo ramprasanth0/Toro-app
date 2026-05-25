@@ -27,18 +27,19 @@ Most operating system dictation tools are built for general-purpose text and str
 
 1. **Download Toro**:
    Go to the [Releases](https://github.com/ramprasanth0/toro-app/releases) section and download the latest compiled `Toro.exe` executable for Windows.
+   `Previous releases have been removed due to security reasons`
 
-2. **Configure Your Credentials**:
+3. **Configure Your Credentials**:
    Create a `.env` file in the **exact same directory** where you placed `Toro.exe` and save your API keys inside it:
    ```env
    DEEPGRAM_API_KEY=your_deepgram_api_key_here
    GEMINI_API_KEY=your_gemini_api_key_here
    ```
 
-3. **Launch**:
+4. **Launch**:
    Double-click `Toro.exe`. Toro will run quietly in the system tray.
 
-4. **Dictate**:
+5. **Dictate**:
    - Focus any text entry box (IDE, editor, Slack, browser, etc.).
    - **Press and hold** `Ctrl + Space` and speak naturally.
    - **Release** the shortcut keys, and watch your words appear, perfectly corrected!
