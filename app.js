@@ -3,6 +3,55 @@
    ========================================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
+
+    // ── Controlled Smooth Scrolling ──
+    const NAVBAR_HEIGHT = 80; // px offset for fixed navbar
+    const SCROLL_DURATION = 900; // ms
+
+    function easeInOutCubic(t) {
+        return t < 0.5
+            ? 4 * t * t * t
+            : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    }
+
+    function smoothScrollTo(targetY, duration) {
+        const startY = window.scrollY;
+        const diff = targetY - startY;
+        let startTime = null;
+
+        function step(timestamp) {
+            if (!startTime) startTime = timestamp;
+            const elapsed = timestamp - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const easedProgress = easeInOutCubic(progress);
+
+            window.scrollTo(0, startY + diff * easedProgress);
+
+            if (progress < 1) {
+                requestAnimationFrame(step);
+            }
+        }
+
+        requestAnimationFrame(step);
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const hash = this.getAttribute('href');
+            if (hash === '#') return;
+
+            const target = document.querySelector(hash);
+            if (!target) return;
+
+            e.preventDefault();
+            const targetY = target.getBoundingClientRect().top + window.scrollY - NAVBAR_HEIGHT;
+            smoothScrollTo(targetY, SCROLL_DURATION);
+
+            // Update URL hash without jumping
+            history.pushState(null, null, hash);
+        });
+    });
+
     // Simulator Samples Data
     const samples = {
         "1": {
@@ -34,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const durationDisplay = document.getElementById("audio-duration");
     const resultTextDisplay = document.getElementById("editor-result-text");
     const pasteStatus = document.getElementById("paste-status-indicator");
-    const lineNumbersContainer = document.querySelector(".editor-line-numbers");
+
 
     // Initialize View
     function resetSimulator() {
@@ -53,8 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
         resultTextDisplay.textContent = "// Ready for dictation. Click Play on the left panel...";
         resultTextDisplay.className = "editor-pasted-text";
 
-        // Reset Line Numbers
-        lineNumbersContainer.innerHTML = "<span>1</span><span>2</span><span>3</span>";
+
     }
 
     // Switch active tab
@@ -134,12 +182,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             pasteStatus.textContent = "Pasted Success!";
                             pasteStatus.className = "copy-status active";
 
-                            // Adjust line numbers if output wraps
-                            const lines = resultTextDisplay.offsetHeight > 40 ? 3 : 2;
-                            lineNumbersContainer.innerHTML = "";
-                            for (let i = 1; i <= lines; i++) {
-                                lineNumbersContainer.innerHTML += `<span>${i}</span>`;
-                            }
+
 
                             // Re-enable button after cool-down
                             setTimeout(() => {
@@ -158,5 +201,27 @@ document.addEventListener("DOMContentLoaded", () => {
             }, 1000);
 
         }, 3200);
+    }
+
+    // ── Speed Visual: Scroll-Triggered Bar Animation ──
+    const speedSection = document.getElementById('speed-visual');
+    if (speedSection) {
+        let hasAnimated = false;
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !hasAnimated) {
+                    hasAnimated = true;
+                    const bars = speedSection.querySelectorAll('.speed-bar');
+                    bars.forEach((bar, index) => {
+                        setTimeout(() => {
+                            bar.style.width = bar.getAttribute('data-width') + '%';
+                        }, index * 150);
+                    });
+                }
+            });
+        }, { threshold: 0.3 });
+
+        observer.observe(speedSection);
     }
 });

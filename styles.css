@@ -31,7 +31,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    scroll-behavior: smooth;
 }
 
 body {
@@ -643,15 +642,27 @@ section {
     flex-grow: 1;
 }
 
-.editor-line-numbers {
-    display: flex;
-    flex-direction: column;
-    color: var(--text-muted);
-    text-align: right;
-    padding-right: 1.25rem;
-    user-select: none;
-    font-size: 0.9rem;
-    line-height: 1.6;
+/* Quickstart Guide Inline Classes */
+.inline-code {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text-primary);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.highlight-link {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition-smooth);
+}
+
+.highlight-link:hover {
+    color: var(--accent);
+    text-decoration: underline;
 }
 
 .editor-content-area {
@@ -983,6 +994,157 @@ section {
     color: var(--text-primary);
 }
 
+/* Speed Comparison Visual */
+.speed-section {
+    background: rgba(11, 15, 25, 0.4);
+    border-top: 1px solid var(--card-border);
+    border-bottom: 1px solid var(--card-border);
+}
+
+.speed-visual-container {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 2.5rem;
+    align-items: start;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.speed-column-header {
+    margin-bottom: 1.5rem;
+}
+
+.speed-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 0.4rem 1rem;
+    border-radius: 99px;
+}
+
+.old-label {
+    color: #f87171;
+    background: rgba(248, 113, 113, 0.1);
+    border: 1px solid rgba(248, 113, 113, 0.2);
+}
+
+.toro-label {
+    color: var(--accent);
+    background: var(--accent-glow);
+    border: 1px solid rgba(6, 182, 212, 0.2);
+}
+
+.speed-bars-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.speed-bar-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.speed-bar-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+}
+
+.speed-bar-track {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    height: 40px;
+    overflow: hidden;
+    position: relative;
+}
+
+.speed-bar {
+    height: 100%;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 0.75rem;
+    transition: width 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    min-width: fit-content;
+}
+
+.speed-bar-old {
+    background: linear-gradient(90deg, rgba(248, 113, 113, 0.25) 0%, rgba(248, 113, 113, 0.45) 100%);
+    border: 1px solid rgba(248, 113, 113, 0.3);
+}
+
+.speed-bar-toro {
+    background: linear-gradient(90deg, rgba(6, 182, 212, 0.25) 0%, rgba(6, 182, 212, 0.5) 100%);
+    border: 1px solid rgba(6, 182, 212, 0.35);
+}
+
+.speed-bar-time {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 700;
+    white-space: nowrap;
+    padding: 0 0.5rem;
+}
+
+.speed-bar-old .speed-bar-time {
+    color: #fca5a5;
+}
+
+.speed-bar-toro .speed-bar-time {
+    color: #67e8f9;
+}
+
+.speed-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 4.5rem;
+}
+
+.speed-vs {
+    font-weight: 800;
+    font-size: 1rem;
+    color: var(--text-muted);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--card-border);
+    padding: 0.6rem 1rem;
+    border-radius: 10px;
+    letter-spacing: 2px;
+}
+
+.speed-takeaway {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    max-width: 700px;
+    margin: 3.5rem auto 0;
+    background: rgba(16, 185, 129, 0.06);
+    border: 1px solid rgba(16, 185, 129, 0.15);
+    border-radius: 14px;
+    padding: 1.25rem 1.75rem;
+}
+
+.takeaway-icon {
+    font-size: 1.5rem;
+    color: var(--success);
+    flex-shrink: 0;
+}
+
+.speed-takeaway p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.93rem;
+    line-height: 1.55;
+}
+
 /* Responsive Breakpoints */
 @media (max-width: 968px) {
     .nav-links { display: none; }
@@ -1013,6 +1175,15 @@ section {
     .architecture-content {
         grid-template-columns: 1fr;
         gap: 3rem;
+    }
+
+    .speed-visual-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .speed-divider {
+        padding-top: 0;
     }
     
     .footer-container {

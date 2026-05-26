@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You | Toro Download</title>
+    <meta name="description"
+        content="Your download of Toro is starting. Follow the simple installation steps to get AI-corrected dictation running on Windows.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ── Thank-You Page Specific Styles ── */
+        .thankyou-wrapper {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .thankyou-card {
+            max-width: 680px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 3rem 2.5rem;
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            text-align: center;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .thankyou-icon {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #a855f7, #6366f1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.8rem;
+            color: #fff;
+            box-shadow: 0 0 40px rgba(168, 85, 247, 0.35);
+            animation: pulseGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes pulseGlow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 30px rgba(168, 85, 247, 0.3);
+            }
+
+            50% {
+                box-shadow: 0 0 50px rgba(168, 85, 247, 0.55);
+            }
+        }
+
+        .thankyou-card h1 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #e0e7ff, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .thankyou-card .subtitle {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .download-spinner {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: rgba(168, 85, 247, 0.12);
+            border: 1px solid rgba(168, 85, 247, 0.25);
+            border-radius: 10px;
+            padding: 0.65rem 1.3rem;
+            font-size: 0.9rem;
+            color: #c084fc;
+            margin-bottom: 1.8rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .download-spinner i {
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .manual-link {
+            display: inline-block;
+            color: #a78bfa;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            font-size: 0.92rem;
+            margin-bottom: 2.5rem;
+            transition: color 0.2s ease;
+        }
+
+        .manual-link:hover {
+            color: #c4b5fd;
+        }
+
+        /* ── Install Steps ── */
+        .install-steps {
+            text-align: left;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 2rem;
+        }
+
+        .install-steps h2 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1.25rem;
+            text-align: center;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+            padding: 0.9rem 1.1rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+            transition: background 0.25s ease, border-color 0.25s ease;
+        }
+
+        .step-item:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(168, 85, 247, 0.2);
+        }
+
+        .step-num {
+            flex-shrink: 0;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #a855f7, #6366f1);
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .step-text {
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 0.93rem;
+            line-height: 1.55;
+        }
+
+        .step-text strong {
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .step-text code {
+            background: rgba(168, 85, 247, 0.15);
+            border: 1px solid rgba(168, 85, 247, 0.2);
+            padding: 0.1em 0.45em;
+            border-radius: 5px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85em;
+            color: #c4b5fd;
+        }
+
+        /* ── Back Link ── */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 2rem;
+            color: rgba(255, 255, 255, 0.45);
+            font-size: 0.88rem;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: rgba(255, 255, 255, 0.75);
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 640px) {
+            .thankyou-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .thankyou-card h1 {
+                font-size: 1.55rem;
+            }
+
+            .step-item {
+                padding: 0.75rem 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Background Glows -->
+    <div class="glow-bg glow-purple"></div>
+    <div class="glow-bg glow-cyan"></div>
+
+    <div class="thankyou-wrapper">
+        <div class="thankyou-card">
+            <!-- Icon -->
+            <div class="thankyou-icon">
+                <i class="fa-solid fa-circle-down"></i>
+            </div>
+
+            <!-- Header -->
+            <h1>Thank you for downloading Toro!</h1>
+            <p class="subtitle">
+                Your download should begin automatically in a moment.<br>
+                If nothing happens, use the link below.
+            </p>
+
+            <!-- Spinner status -->
+            <div class="download-spinner" id="download-status">
+                <i class="fa-solid fa-spinner"></i> Starting download…
+            </div>
+
+            <br>
+
+            <!-- Manual fallback -->
+            <a href="#" class="manual-link" id="manual-download">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                If it doesn't start, click here.
+            </a>
+
+            <!-- Install instructions -->
+            <div class="install-steps">
+                <h2><i class="fa-brands fa-windows"></i>&nbsp; Windows Installation Steps</h2>
+
+                <div class="step-item">
+                    <span class="step-num">1</span>
+                    <span class="step-text">
+                        Locate the downloaded <code>Toro.exe</code> file in your <strong>Downloads</strong> folder
+                        (or wherever your browser saves files).
+                    </span>
+                </div>
+
+                <div class="step-item">
+                    <span class="step-num">2</span>
+                    <span class="step-text">
+                        <strong>Double-click</strong> <code>Toro.exe</code> to launch the application.
+                    </span>
+                </div>
+
+                <div class="step-item">
+                    <span class="step-num">3</span>
+                    <span class="step-text">
+                        If Windows Defender SmartScreen appears, click <strong>"More info"</strong> and then
+                        <strong>"Run anyway"</strong>. Toro is open-source and 100% safe.
+                    </span>
+                </div>
+            </div>
+
+            <!-- Back to site -->
+            <a href="/" class="back-link" id="back-to-home">
+                <i class="fa-solid fa-arrow-left"></i> Back to toro homepage
+            </a>
+        </div>
+    </div>
+
+    <!-- Auto-download script -->
+    <script>
+        (function () {
+            // ── CONFIGURATION ──────────────────────────────────────────────
+            // Replace these placeholders with your actual GitHub values:
+            var USERNAME = 'ramprasanth0';
+            var REPO = 'Toro-app';
+            var APP_NAME = 'Toro';   // Downloads Toro.exe from the latest release
+            // ────────────────────────────────────────────────────────────────
+
+            var downloadURL = 'https://github.com/' + USERNAME + '/' + REPO + '/releases/latest/download/' + APP_NAME + '.exe';
+
+            // Set the manual fallback link href immediately
+            var manualLink = document.getElementById('manual-download');
+            if (manualLink) {
+                manualLink.href = downloadURL;
+            }
+
+            // Auto-trigger download after 1500ms
+            window.onload = function () {
+                setTimeout(function () {
+                    window.location.href = downloadURL;
+
+                    // Update spinner to "complete" state
+                    var status = document.getElementById('download-status');
+                    if (status) {
+                        status.innerHTML = '<i class="fa-solid fa-circle-check"></i> Download started!';
+                        status.style.color = '#4ade80';
+                        status.style.borderColor = 'rgba(74, 222, 128, 0.25)';
+                        status.style.background = 'rgba(74, 222, 128, 0.1)';
+                    }
+                }, 1500);
+            };
+        })();
+    </script>
+</body>
+
+</html>
