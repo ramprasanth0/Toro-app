@@ -158,7 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // Step 2: After 1 second, transition to formatting
             setTimeout(() => {
                 pasteStatus.textContent = "AI Formatting...";
-                resultTextDisplay.textContent = `Polishing with Gemini Flash...\n- Punctuation & casing\n- Technical vocabulary parsing\n- Technical code syntax`;
+                resultTextDisplay.textContent = `Polishing...\n- Punctuation & casing\n- Technical vocabulary parsing\n- Technical code syntax`;
 
                 // Step 3: After 1.2 seconds, trigger pasting typewriter
                 setTimeout(() => {
