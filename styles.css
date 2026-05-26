@@ -299,6 +299,8 @@ section {
 
 .hero-ctas {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 1.25rem;
     margin-bottom: 5rem;
 }
@@ -342,6 +344,34 @@ section {
     background: rgba(255, 255, 255, 0.1);
     border-color: var(--text-secondary);
     transform: translateY(-2px);
+}
+
+.hero-cta-macos {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-muted);
+    background: rgba(255, 255, 255, 0.02);
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    border: 1px dashed rgba(255, 255, 255, 0.15);
+    font-weight: 600;
+    font-size: 1.05rem;
+    cursor: not-allowed;
+    user-select: none;
+}
+
+.soon-badge {
+    background: rgba(168, 85, 247, 0.12);
+    color: #c4b5fd;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    padding: 0.2rem 0.5rem;
+    border-radius: 6px;
+    margin-left: 0.25rem;
+    border: 1px solid rgba(168, 85, 247, 0.25);
+    letter-spacing: 0.5px;
 }
 
 .hero-metrics {
