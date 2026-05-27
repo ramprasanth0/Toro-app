@@ -30,7 +30,7 @@ Most operating system dictation tools are built for general-purpose text and str
    `Previous releases have been removed due to security reasons`
 
 2. **Windows SmartScreen (First Run)**:
-   Because Toro is a new application, Windows might display a blue **"Windows protected your PC"** popup. Toro is completely open-source and 100% safe to use.
+   Because Toro is a new application, Windows might display a blue **"Windows protected your PC"** popup. Toro is completely safe to use and trusted by our community of testers.
    - To proceed: Click **"More info"** and then click **"Run anyway"**.
 
 3. **Launch**:

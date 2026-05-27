@@ -24,16 +24,15 @@
     <style>
         /* ── Getting Started Page Specific Styles ── */
         .gs-page {
-            padding-top: 7rem;
-            padding-bottom: 5rem;
+            padding: 7rem 2rem 5rem 2rem;
             position: relative;
             z-index: 1;
         }
 
         .gs-container {
             max-width: 820px;
-            margin: 0 auto;
-            padding: 0 2rem;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         /* Page Header */
@@ -580,19 +579,158 @@
             box-shadow: 0 6px 24px rgba(99, 102, 241, 0.5);
         }
 
+        /* Daily Limits Table */
+        .gs-limits-table-wrap {
+            margin-top: 1.25rem;
+            background: rgba(255, 255, 255, 0.025);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 14px;
+            overflow: hidden;
+        }
+
+        .gs-limits-table-title {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 1rem 1.5rem;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.9);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .gs-limits-table-title i {
+            color: #fbbf24;
+        }
+
+        .gs-limits-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .gs-limits-table thead th {
+            padding: 0.85rem 1.5rem;
+            text-align: left;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: rgba(255, 255, 255, 0.4);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .gs-limits-table tbody tr {
+            transition: background 0.2s ease;
+        }
+
+        .gs-limits-table tbody tr:hover {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .gs-limits-table tbody tr:not(:last-child) td {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .gs-limits-table td {
+            padding: 1rem 1.5rem;
+            font-size: 0.93rem;
+        }
+
+        .gs-limits-mode {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            font-weight: 650;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .gs-limits-mode-emoji {
+            font-size: 1.1rem;
+        }
+
+        .gs-limits-mode-sub {
+            display: block;
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.4);
+            font-family: 'JetBrains Mono', monospace;
+            margin-top: 0.15rem;
+        }
+
+        .gs-limits-count {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            font-size: 1.05rem;
+        }
+
+        .gs-limits-count.high { color: #22d3ee; }
+        .gs-limits-count.mid { color: #a78bfa; }
+        .gs-limits-count.low { color: #f472b6; }
+
+        .gs-limits-bar-track {
+            width: 100%;
+            max-width: 180px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 99px;
+            overflow: hidden;
+        }
+
+        .gs-limits-bar {
+            height: 100%;
+            border-radius: 99px;
+            transition: width 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .gs-limits-bar.high {
+            width: 100%;
+            background: linear-gradient(90deg, #22d3ee, #06b6d4);
+        }
+        .gs-limits-bar.mid {
+            width: 40%;
+            background: linear-gradient(90deg, #a78bfa, #6366f1);
+        }
+        .gs-limits-bar.low {
+            width: 20%;
+            background: linear-gradient(90deg, #f472b6, #ec4899);
+        }
+
+        .gs-limits-note {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.65rem;
+            padding: 0.85rem 1.5rem;
+            background: rgba(245, 158, 11, 0.05);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.82rem;
+            color: rgba(255, 255, 255, 0.45);
+            line-height: 1.5;
+        }
+
+        .gs-limits-note i {
+            color: #fbbf24;
+            margin-top: 0.1rem;
+            flex-shrink: 0;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .gs-hero h1 { font-size: 2rem; }
             .gs-models-grid { grid-template-columns: 1fr; }
             .gs-section-header h2 { font-size: 1.25rem; }
+            .gs-limits-table td,
+            .gs-limits-table thead th { padding: 0.75rem 1rem; }
+            .gs-limits-bar-track { max-width: 120px; }
         }
 
         @media (max-width: 576px) {
             .gs-hero h1 { font-size: 1.65rem; }
-            .gs-container { padding: 0 1.25rem; }
+            .gs-page { padding-left: 1.25rem; padding-right: 1.25rem; }
             .gs-card { padding: 1.25rem 1.35rem; }
             .gs-warning-callout { padding: 1.35rem; }
             .gs-footer-actions { flex-direction: column; }
+            .gs-limits-bar-track { display: none; }
         }
     </style>
 </head>
@@ -659,8 +797,8 @@
                         and it appears for any new application that hasn't been widely installed yet.
                     </p>
                     <p>
-                        <strong>Toro is 100% safe.</strong> It is fully open-source, and you can inspect every line of code on our
-                        <a href="https://github.com/ramprasanth0/toro-app" target="_blank" style="color: #fbbf24; text-decoration: underline; text-underline-offset: 3px;">GitHub repository</a>.
+                        <strong>Toro is 100% safe.</strong> It has been built and tested by our development team and is trusted
+                        by our community of testers.
                         No data is collected, stored, or sent anywhere beyond the AI transcription service.
                     </p>
 
@@ -687,7 +825,7 @@
 
                     <div class="gs-safety-badge">
                         <i class="fa-solid fa-lock"></i>
-                        Open-source &middot; No data collection &middot; Verified safe
+                        Trusted &amp; tested &middot; No data collection &middot; Verified safe
                     </div>
                 </div>
             </div>
@@ -794,21 +932,99 @@
                 <div class="gs-models-grid" style="margin-top: 1rem;">
                     <div class="gs-model-card fast">
                         <div class="gs-model-icon"><i class="fa-solid fa-bolt"></i></div>
-                        <div class="gs-model-name">Fast</div>
-                        <div class="gs-model-desc">Quickest response time. Great for rapid-fire notes and casual messages.</div>
-                        <span class="gs-model-tag">Highest usage limit</span>
+                        <div class="gs-model-name">⚡ Fast</div>
+                        <div class="gs-model-desc">Powered by Flash Lite. Quickest response time — great for rapid-fire notes and casual messages.</div>
+                        <span class="gs-model-tag">50 requests / day</span>
                     </div>
                     <div class="gs-model-card balanced">
                         <div class="gs-model-icon"><i class="fa-solid fa-scale-balanced"></i></div>
-                        <div class="gs-model-name">Balanced</div>
-                        <div class="gs-model-desc">Best mix of speed and formatting quality. Recommended for most users.</div>
-                        <span class="gs-model-tag">Moderate usage limit</span>
+                        <div class="gs-model-name">⚖️ Balanced</div>
+                        <div class="gs-model-desc">Powered by 2.5 Flash. Best mix of speed and formatting quality. Recommended for most users.</div>
+                        <span class="gs-model-tag">20 requests / day</span>
                     </div>
                     <div class="gs-model-card accurate">
                         <div class="gs-model-icon"><i class="fa-solid fa-crosshairs"></i></div>
-                        <div class="gs-model-name">Accurate</div>
-                        <div class="gs-model-desc">Highest formatting precision. Best for technical writing and documentation.</div>
-                        <span class="gs-model-tag">Lower usage limit</span>
+                        <div class="gs-model-name">🎯 Accurate</div>
+                        <div class="gs-model-desc">Powered by 3 Flash. Highest formatting precision — best for technical writing and documentation.</div>
+                        <span class="gs-model-tag">10 requests / day</span>
+                    </div>
+                </div>
+
+                <!-- Daily Usage Limits Table -->
+                <div class="gs-limits-table-wrap">
+                    <div class="gs-limits-table-title">
+                        <i class="fa-solid fa-gauge-high"></i>
+                        Daily Usage Limits
+                    </div>
+                    <table class="gs-limits-table">
+                        <thead>
+                            <tr>
+                                <th>Mode</th>
+                                <th>AI Model</th>
+                                <th>Daily Limit</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="gs-limits-mode">
+                                        <span class="gs-limits-mode-emoji">⚡</span>
+                                        <div>
+                                            Fast
+                                            <span class="gs-limits-mode-sub">Flash Lite</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td style="color: rgba(255,255,255,0.5); font-size: 0.88rem;">Gemini Flash Lite</td>
+                                <td><span class="gs-limits-count high">50 requests</span></td>
+                                <td>
+                                    <div class="gs-limits-bar-track">
+                                        <div class="gs-limits-bar high"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="gs-limits-mode">
+                                        <span class="gs-limits-mode-emoji">⚖️</span>
+                                        <div>
+                                            Balanced
+                                            <span class="gs-limits-mode-sub">2.5 Flash</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td style="color: rgba(255,255,255,0.5); font-size: 0.88rem;">Gemini 2.5 Flash</td>
+                                <td><span class="gs-limits-count mid">20 requests</span></td>
+                                <td>
+                                    <div class="gs-limits-bar-track">
+                                        <div class="gs-limits-bar mid"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="gs-limits-mode">
+                                        <span class="gs-limits-mode-emoji">🎯</span>
+                                        <div>
+                                            Accurate
+                                            <span class="gs-limits-mode-sub">3 Flash</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td style="color: rgba(255,255,255,0.5); font-size: 0.88rem;">Gemini 3 Flash</td>
+                                <td><span class="gs-limits-count low">10 requests</span></td>
+                                <td>
+                                    <div class="gs-limits-bar-track">
+                                        <div class="gs-limits-bar low"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="gs-limits-note">
+                        <i class="fa-solid fa-circle-info"></i>
+                        <span>Limits reset every 24 hours. If you hit the cap on one tier, switch to a higher-limit mode to keep working.</span>
                     </div>
                 </div>
 
@@ -816,8 +1032,8 @@
                     <i class="fa-solid fa-lightbulb"></i>
                     <p>
                         <strong>Pro Tip:</strong> If you are running into errors or getting rate-limited, switch to the
-                        <strong>Fast</strong> model — it has the highest usage allowance and will keep you productive
-                        while limits reset.
+                        <strong>Fast</strong> model — it has 50 requests/day and will keep you productive
+                        while limits reset on the other tiers.
                     </p>
                 </div>
             </div>
@@ -872,7 +1088,23 @@
                             <div class="gs-faq-answer-inner">
                                 Toro pastes text at your current cursor position. Make sure your cursor is focused in the
                                 correct text field <em>before</em> pressing <code>Ctrl + Space</code>. Avoid clicking
-                                elsewhere while recording.
+                                elsewhere while recording. <strong>Also note:</strong> your formatted text is always
+                                saved to your clipboard, so you can press <code>Ctrl + V</code> to paste it wherever
+                                you need.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gs-faq-item">
+                        <div class="gs-faq-question" onclick="this.parentElement.classList.toggle('open')">
+                            <span>The text didn't paste — where did it go?</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                        <div class="gs-faq-answer">
+                            <div class="gs-faq-answer-inner">
+                                Don't worry — <strong>your text is not lost.</strong> Toro always copies the formatted text
+                                to your clipboard. Simply press <code>Ctrl + V</code> in any text field to paste it.
+                                This also means you can reuse the same text multiple times by pasting again.
                             </div>
                         </div>
                     </div>
@@ -937,6 +1169,10 @@
                         <i class="fa-solid fa-circle-check" style="color: #34d399; margin-right: 0.4rem;"></i>
                         <strong>Errors?</strong> Switch to Fast model for the highest usage limit.
                     </p>
+                    <p>
+                        <i class="fa-solid fa-circle-check" style="color: #34d399; margin-right: 0.4rem;"></i>
+                        <strong>Clipboard backup:</strong> Text is always saved to clipboard — press <code>Ctrl + V</code> to paste anytime.
+                    </p>
                 </div>
             </div>
 
@@ -971,7 +1207,6 @@
                 <div class="footer-col">
                     <h4>Resources</h4>
                     <a href="/getting-started.html">Getting Started</a>
-                    <a href="https://github.com/ramprasanth0/toro-app" target="_blank">GitHub Repository</a>
                 </div>
             </div>
         </div>
