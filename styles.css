@@ -1175,6 +1175,99 @@ section {
     line-height: 1.55;
 }
 
+/* Privacy Trust Section */
+.privacy-section {
+    padding: 2rem 2rem 4rem 2rem;
+}
+
+.privacy-strip {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    max-width: 960px;
+    margin: 0 auto;
+    background: rgba(22, 28, 45, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 20px;
+    padding: 2.5rem 3rem;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition-smooth);
+}
+
+.privacy-strip::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(16, 185, 129, 0.4) 30%, rgba(6, 182, 212, 0.4) 70%, transparent 100%);
+}
+
+.privacy-strip:hover {
+    border-color: rgba(16, 185, 129, 0.15);
+    box-shadow: 0 8px 40px rgba(16, 185, 129, 0.04);
+}
+
+.privacy-pillar {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    padding: 0.5rem 0;
+}
+
+.privacy-icon-ring {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    background: rgba(16, 185, 129, 0.08);
+    color: var(--success);
+    border: 1px solid rgba(16, 185, 129, 0.15);
+    transition: var(--transition-smooth);
+}
+
+.privacy-pillar:hover .privacy-icon-ring {
+    background: rgba(16, 185, 129, 0.14);
+    border-color: rgba(16, 185, 129, 0.3);
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.1);
+    transform: scale(1.05);
+}
+
+.privacy-pillar-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.privacy-pillar-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.3px;
+}
+
+.privacy-pillar-text {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.55;
+}
+
+.privacy-divider-line {
+    width: 1px;
+    background: linear-gradient(to bottom, transparent 0%, rgba(255, 255, 255, 0.08) 30%, rgba(255, 255, 255, 0.08) 70%, transparent 100%);
+    margin: 0 2.5rem;
+    flex-shrink: 0;
+}
+
 /* Responsive Breakpoints */
 @media (max-width: 968px) {
     .nav-links { display: none; }
@@ -1214,6 +1307,18 @@ section {
 
     .speed-divider {
         padding-top: 0;
+    }
+
+    .privacy-strip {
+        flex-direction: column;
+        padding: 2rem;
+    }
+
+    .privacy-divider-line {
+        width: 100%;
+        height: 1px;
+        margin: 1.5rem 0;
+        background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.08) 30%, rgba(255, 255, 255, 0.08) 70%, transparent 100%);
     }
     
     .footer-container {
