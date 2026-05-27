@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started | Toro — Setup Guide for Testers</title>
+    <meta name="description"
+        content="Step-by-step setup guide for Toro test users. Learn how to install, configure, and get the most out of Toro's AI-corrected dictation on Windows.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ── Getting Started Page Specific Styles ── */
+        .gs-page {
+            padding-top: 7rem;
+            padding-bottom: 5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .gs-container {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Page Header */
+        .gs-hero {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: gsFadeIn 0.6s ease-out forwards;
+        }
+
+        @keyframes gsFadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .gs-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #f59e0b;
+            background: rgba(245, 158, 11, 0.1);
+            padding: 0.4rem 1rem;
+            border-radius: 99px;
+            border: 1px solid rgba(245, 158, 11, 0.25);
+            margin-bottom: 1.25rem;
+        }
+
+        .gs-hero h1 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 2.75rem;
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gs-hero p {
+            font-size: 1.15rem;
+            color: rgba(255, 255, 255, 0.55);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* Section Blocks */
+        .gs-section {
+            margin-bottom: 3.5rem;
+            animation: gsFadeIn 0.5s ease-out forwards;
+        }
+
+        .gs-section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .gs-section-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.15rem;
+            flex-shrink: 0;
+        }
+
+        .gs-section-icon.blue { background: rgba(99, 102, 241, 0.12); color: #818cf8; }
+        .gs-section-icon.amber { background: rgba(245, 158, 11, 0.12); color: #fbbf24; }
+        .gs-section-icon.cyan { background: rgba(6, 182, 212, 0.12); color: #22d3ee; }
+        .gs-section-icon.green { background: rgba(16, 185, 129, 0.12); color: #34d399; }
+        .gs-section-icon.rose { background: rgba(244, 63, 94, 0.12); color: #fb7185; }
+        .gs-section-icon.purple { background: rgba(168, 85, 247, 0.12); color: #c084fc; }
+
+        .gs-section-header h2 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 750;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        /* Card Containers */
+        .gs-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 16px;
+            padding: 1.75rem 2rem;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .gs-card:hover {
+            border-color: rgba(99, 102, 241, 0.2);
+            background: rgba(255, 255, 255, 0.045);
+        }
+
+        .gs-card p {
+            color: rgba(255, 255, 255, 0.65);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+
+        .gs-card p + p {
+            margin-top: 0.75rem;
+        }
+
+        .gs-card strong {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .gs-card code {
+            background: rgba(168, 85, 247, 0.12);
+            border: 1px solid rgba(168, 85, 247, 0.2);
+            padding: 0.15em 0.45em;
+            border-radius: 5px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85em;
+            color: #c4b5fd;
+        }
+
+        /* SmartScreen Warning Callout */
+        .gs-warning-callout {
+            background: rgba(245, 158, 11, 0.06);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            border-radius: 16px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gs-warning-callout::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #f59e0b, #d97706);
+            border-radius: 4px 0 0 4px;
+        }
+
+        .gs-warning-title {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #fbbf24;
+            margin-bottom: 1rem;
+        }
+
+        .gs-warning-callout p {
+            color: rgba(255, 255, 255, 0.65);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .gs-warning-callout p + p {
+            margin-top: 0.6rem;
+        }
+
+        .gs-steps-mini {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-top: 1.25rem;
+        }
+
+        .gs-step-mini {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.85rem;
+            padding: 0.85rem 1rem;
+            background: rgba(245, 158, 11, 0.06);
+            border: 1px solid rgba(245, 158, 11, 0.12);
+            border-radius: 10px;
+            transition: all 0.25s ease;
+        }
+
+        .gs-step-mini:hover {
+            background: rgba(245, 158, 11, 0.1);
+            border-color: rgba(245, 158, 11, 0.25);
+        }
+
+        .gs-step-mini-num {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.78rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .gs-step-mini-text {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.92rem;
+            line-height: 1.5;
+        }
+
+        .gs-step-mini-text strong {
+            color: #fde68a;
+        }
+
+        /* Safety Badge */
+        .gs-safety-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background: rgba(16, 185, 129, 0.08);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 99px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: #34d399;
+        }
+
+        /* Model Cards Grid */
+        .gs-models-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .gs-model-card {
+            background: rgba(255, 255, 255, 0.025);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 14px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gs-model-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(99, 102, 241, 0.3);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .gs-model-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+        }
+
+        .gs-model-card.fast::before {
+            background: linear-gradient(90deg, #22d3ee, #06b6d4);
+        }
+        .gs-model-card.balanced::before {
+            background: linear-gradient(90deg, #a78bfa, #6366f1);
+        }
+        .gs-model-card.accurate::before {
+            background: linear-gradient(90deg, #f472b6, #ec4899);
+        }
+
+        .gs-model-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .gs-model-card.fast .gs-model-icon { color: #22d3ee; }
+        .gs-model-card.balanced .gs-model-icon { color: #a78bfa; }
+        .gs-model-card.accurate .gs-model-icon { color: #f472b6; }
+
+        .gs-model-name {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0.5rem;
+        }
+
+        .gs-model-desc {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.85rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .gs-model-tag {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 0.3rem 0.75rem;
+            border-radius: 99px;
+        }
+
+        .gs-model-card.fast .gs-model-tag {
+            color: #22d3ee;
+            background: rgba(34, 211, 238, 0.1);
+            border: 1px solid rgba(34, 211, 238, 0.2);
+        }
+        .gs-model-card.balanced .gs-model-tag {
+            color: #a78bfa;
+            background: rgba(167, 139, 250, 0.1);
+            border: 1px solid rgba(167, 139, 250, 0.2);
+        }
+        .gs-model-card.accurate .gs-model-tag {
+            color: #f472b6;
+            background: rgba(244, 114, 182, 0.1);
+            border: 1px solid rgba(244, 114, 182, 0.2);
+        }
+
+        /* Model tip */
+        .gs-model-tip {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-top: 1.25rem;
+            padding: 1rem 1.25rem;
+            background: rgba(6, 182, 212, 0.06);
+            border: 1px solid rgba(6, 182, 212, 0.15);
+            border-radius: 12px;
+        }
+
+        .gs-model-tip i {
+            color: #22d3ee;
+            font-size: 1.1rem;
+            margin-top: 0.15rem;
+            flex-shrink: 0;
+        }
+
+        .gs-model-tip p {
+            color: rgba(255, 255, 255, 0.65);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Numbered Steps */
+        .gs-numbered-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .gs-numbered-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.15rem 1.35rem;
+            background: rgba(255, 255, 255, 0.025);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+            transition: all 0.25s ease;
+        }
+
+        .gs-numbered-step:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(99, 102, 241, 0.15);
+        }
+
+        .gs-num {
+            flex-shrink: 0;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6366f1, #a855f7);
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .gs-num-text {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.93rem;
+            line-height: 1.6;
+        }
+
+        .gs-num-text strong {
+            color: rgba(255, 255, 255, 0.92);
+        }
+
+        /* Info Callout */
+        .gs-info-callout {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.85rem;
+            padding: 1.15rem 1.35rem;
+            background: rgba(99, 102, 241, 0.06);
+            border: 1px solid rgba(99, 102, 241, 0.15);
+            border-radius: 12px;
+            margin-top: 1rem;
+        }
+
+        .gs-info-callout i {
+            color: #818cf8;
+            font-size: 1.1rem;
+            margin-top: 0.15rem;
+            flex-shrink: 0;
+        }
+
+        .gs-info-callout p {
+            color: rgba(255, 255, 255, 0.65);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* FAQ Accordion */
+        .gs-faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .gs-faq-item {
+            background: rgba(255, 255, 255, 0.025);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.25s ease;
+        }
+
+        .gs-faq-item:hover {
+            border-color: rgba(99, 102, 241, 0.2);
+        }
+
+        .gs-faq-question {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.1rem 1.35rem;
+            cursor: pointer;
+            user-select: none;
+            gap: 1rem;
+            transition: background 0.2s ease;
+        }
+
+        .gs-faq-question:hover {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .gs-faq-question span {
+            font-weight: 650;
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .gs-faq-question i {
+            color: rgba(255, 255, 255, 0.35);
+            font-size: 0.85rem;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .gs-faq-item.open .gs-faq-question i {
+            transform: rotate(180deg);
+            color: #818cf8;
+        }
+
+        .gs-faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease, padding 0.35s ease;
+        }
+
+        .gs-faq-item.open .gs-faq-answer {
+            max-height: 300px;
+        }
+
+        .gs-faq-answer-inner {
+            padding: 0 1.35rem 1.25rem;
+            color: rgba(255, 255, 255, 0.55);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        /* Divider */
+        .gs-divider {
+            height: 1px;
+            background: rgba(255, 255, 255, 0.06);
+            margin: 1rem 0;
+        }
+
+        /* Back and CTA links */
+        .gs-footer-actions {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .gs-back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255, 255, 255, 0.45);
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .gs-back-link:hover {
+            color: rgba(255, 255, 255, 0.75);
+        }
+
+        .gs-download-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            text-decoration: none;
+            color: #fff;
+            background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+            padding: 0.75rem 1.75rem;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.92rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 16px rgba(99, 102, 241, 0.3);
+        }
+
+        .gs-download-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(99, 102, 241, 0.5);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .gs-hero h1 { font-size: 2rem; }
+            .gs-models-grid { grid-template-columns: 1fr; }
+            .gs-section-header h2 { font-size: 1.25rem; }
+        }
+
+        @media (max-width: 576px) {
+            .gs-hero h1 { font-size: 1.65rem; }
+            .gs-container { padding: 0 1.25rem; }
+            .gs-card { padding: 1.25rem 1.35rem; }
+            .gs-warning-callout { padding: 1.35rem; }
+            .gs-footer-actions { flex-direction: column; }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Background Glows -->
+    <div class="glow-bg glow-purple"></div>
+    <div class="glow-bg glow-cyan"></div>
+
+    <!-- Navigation Header -->
+    <header class="navbar" id="site-header">
+        <div class="nav-container">
+            <a href="/" class="nav-logo" id="nav-logo-link">
+                <span class="logo-icon"><img src="assets/icon.ico" alt="Toro Logo Icon" class="logo-img-icon"></span>
+                <span class="logo-text">Toro</span>
+            </a>
+            <nav class="nav-links" id="main-navigation">
+                <a href="/#features" class="nav-item">Features</a>
+                <a href="/#interactive-simulator" class="nav-item">Interactive Demo</a>
+                <a href="/getting-started.html" class="nav-item" style="color: #f59e0b;">Getting Started</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="https://github.com/ramprasanth0/toro-app" target="_blank" class="github-btn"
+                    id="github-nav-btn" aria-label="View on GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="/thank-you.html" class="cta-nav-btn" id="cta-header-download">Download</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="gs-page">
+        <div class="gs-container">
+
+            <!-- ─── Page Header ─── -->
+            <div class="gs-hero" id="gs-top">
+                <div class="gs-hero-badge">
+                    <i class="fa-solid fa-flask"></i> Tester Guide
+                </div>
+                <h1>Getting Started with Toro</h1>
+                <p>Everything you need to know to install, configure, and start using Toro on your Windows machine. This guide is written specifically for our early testers.</p>
+            </div>
+
+            <!-- ═══════════════════════════════════════════════════════════ -->
+            <!-- SECTION 1: Windows SmartScreen                           -->
+            <!-- ═══════════════════════════════════════════════════════════ -->
+            <div class="gs-section" id="gs-smartscreen">
+                <div class="gs-section-header">
+                    <div class="gs-section-icon amber">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h2>Windows SmartScreen Pop-up</h2>
+                </div>
+
+                <div class="gs-warning-callout">
+                    <div class="gs-warning-title">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        Important — Please read before running Toro
+                    </div>
+                    <p>
+                        When you run <strong>Toro.exe</strong> for the first time, Windows may display a blue
+                        <strong>"Windows protected your PC"</strong> pop-up. This is called <strong>Windows SmartScreen</strong>
+                        and it appears for any new application that hasn't been widely installed yet.
+                    </p>
+                    <p>
+                        <strong>Toro is 100% safe.</strong> It is fully open-source, and you can inspect every line of code on our
+                        <a href="https://github.com/ramprasanth0/toro-app" target="_blank" style="color: #fbbf24; text-decoration: underline; text-underline-offset: 3px;">GitHub repository</a>.
+                        No data is collected, stored, or sent anywhere beyond the AI transcription service.
+                    </p>
+
+                    <div class="gs-steps-mini">
+                        <div class="gs-step-mini">
+                            <span class="gs-step-mini-num">1</span>
+                            <span class="gs-step-mini-text">
+                                When the blue pop-up appears, click <strong>"More info"</strong> at the bottom of the dialog.
+                            </span>
+                        </div>
+                        <div class="gs-step-mini">
+                            <span class="gs-step-mini-num">2</span>
+                            <span class="gs-step-mini-text">
+                                A new button will appear — click <strong>"Run anyway"</strong> to launch Toro.
+                            </span>
+                        </div>
+                        <div class="gs-step-mini">
+                            <span class="gs-step-mini-num">3</span>
+                            <span class="gs-step-mini-text">
+                                This prompt will <strong>only appear once</strong>. Future launches will start normally.
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="gs-safety-badge">
+                        <i class="fa-solid fa-lock"></i>
+                        Open-source &middot; No data collection &middot; Verified safe
+                    </div>
+                </div>
+            </div>
+
+            <!-- ═══════════════════════════════════════════════════════════ -->
+            <!-- SECTION 2: Startup Behavior                              -->
+            <!-- ═══════════════════════════════════════════════════════════ -->
+            <div class="gs-section" id="gs-startup">
+                <div class="gs-section-header">
+                    <div class="gs-section-icon blue">
+                        <i class="fa-solid fa-rocket"></i>
+                    </div>
+                    <h2>Startup Behavior — What to Expect</h2>
+                </div>
+
+                <div class="gs-card">
+                    <p>
+                        Toro does not have a front-end window or GUI yet — it is a <strong>background utility</strong> that runs
+                        in your system tray. Because of this, <strong>Windows will not show a startup notification</strong>
+                        when you launch the app.
+                    </p>
+                    <p>
+                        After double-clicking <code>Toro.exe</code>, the app takes approximately <strong>2–3 seconds</strong> to
+                        initialize. Once ready, the <strong>Toro icon</strong> will quietly appear in your
+                        <strong>system tray</strong> (the small icon area near the clock on your taskbar).
+                    </p>
+                    <p>
+                        If you don't see it immediately, click the <strong>▲ (up arrow)</strong> on your taskbar to reveal
+                        hidden icons — Toro will be there.
+                    </p>
+
+                    <div class="gs-info-callout">
+                        <i class="fa-solid fa-circle-info"></i>
+                        <p>
+                            <strong>Tip:</strong> You can pin Toro to your visible taskbar tray by dragging the icon out
+                            of the hidden icons area for quick access.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ═══════════════════════════════════════════════════════════ -->
+            <!-- SECTION 3: How to Use                                    -->
+            <!-- ═══════════════════════════════════════════════════════════ -->
+            <div class="gs-section" id="gs-usage">
+                <div class="gs-section-header">
+                    <div class="gs-section-icon cyan">
+                        <i class="fa-solid fa-keyboard"></i>
+                    </div>
+                    <h2>How to Use Toro</h2>
+                </div>
+
+                <div class="gs-numbered-steps">
+                    <div class="gs-numbered-step">
+                        <span class="gs-num">1</span>
+                        <span class="gs-num-text">
+                            <strong>Place your cursor</strong> in any text field — Word, Slack, browser, VS Code, email,
+                            or any other app where you can type.
+                        </span>
+                    </div>
+                    <div class="gs-numbered-step">
+                        <span class="gs-num">2</span>
+                        <span class="gs-num-text">
+                            <strong>Press and hold</strong> <code>Ctrl + Space</code>. You will hear a subtle
+                            <strong>start sound</strong> confirming that recording has begun.
+                        </span>
+                    </div>
+                    <div class="gs-numbered-step">
+                        <span class="gs-num">3</span>
+                        <span class="gs-num-text">
+                            <strong>Speak naturally</strong> — say what you want to type. Don't worry about punctuation,
+                            capitalization, or filler words. Toro handles all of that.
+                        </span>
+                    </div>
+                    <div class="gs-numbered-step">
+                        <span class="gs-num">4</span>
+                        <span class="gs-num-text">
+                            <strong>Release the keys.</strong> You'll hear a <strong>stop sound</strong>, and within
+                            ~2 seconds, your formatted text is automatically pasted at your cursor.
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ═══════════════════════════════════════════════════════════ -->
+            <!-- SECTION 4: AI Model Tiers                                -->
+            <!-- ═══════════════════════════════════════════════════════════ -->
+            <div class="gs-section" id="gs-models">
+                <div class="gs-section-header">
+                    <div class="gs-section-icon purple">
+                        <i class="fa-solid fa-sliders"></i>
+                    </div>
+                    <h2>AI Model Tiers</h2>
+                </div>
+
+                <div class="gs-card" style="padding-bottom: 1.25rem;">
+                    <p>
+                        Toro offers three AI correction modes. You can switch between them by <strong>right-clicking</strong>
+                        the Toro icon in your system tray and selecting <strong>Models</strong>. Each tier uses a different
+                        AI model with varying speed, accuracy, and usage limits.
+                    </p>
+                </div>
+
+                <div class="gs-models-grid" style="margin-top: 1rem;">
+                    <div class="gs-model-card fast">
+                        <div class="gs-model-icon"><i class="fa-solid fa-bolt"></i></div>
+                        <div class="gs-model-name">Fast</div>
+                        <div class="gs-model-desc">Quickest response time. Great for rapid-fire notes and casual messages.</div>
+                        <span class="gs-model-tag">Highest usage limit</span>
+                    </div>
+                    <div class="gs-model-card balanced">
+                        <div class="gs-model-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+                        <div class="gs-model-name">Balanced</div>
+                        <div class="gs-model-desc">Best mix of speed and formatting quality. Recommended for most users.</div>
+                        <span class="gs-model-tag">Moderate usage limit</span>
+                    </div>
+                    <div class="gs-model-card accurate">
+                        <div class="gs-model-icon"><i class="fa-solid fa-crosshairs"></i></div>
+                        <div class="gs-model-name">Accurate</div>
+                        <div class="gs-model-desc">Highest formatting precision. Best for technical writing and documentation.</div>
+                        <span class="gs-model-tag">Lower usage limit</span>
+                    </div>
+                </div>
+
+                <div class="gs-model-tip">
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <p>
+                        <strong>Pro Tip:</strong> If you are running into errors or getting rate-limited, switch to the
+                        <strong>Fast</strong> model — it has the highest usage allowance and will keep you productive
+                        while limits reset.
+                    </p>
+                </div>
+            </div>
+
+            <!-- ═══════════════════════════════════════════════════════════ -->
+            <!-- SECTION 5: Troubleshooting                               -->
+            <!-- ═══════════════════════════════════════════════════════════ -->
+            <div class="gs-section" id="gs-troubleshooting">
+                <div class="gs-section-header">
+                    <div class="gs-section-icon rose">
+                        <i class="fa-solid fa-wrench"></i>
+                    </div>
+                    <h2>Troubleshooting</h2>
+                </div>
+
+                <div class="gs-faq-list">
+                    <div class="gs-faq-item">
+                        <div class="gs-faq-question" onclick="this.parentElement.classList.toggle('open')">
+                            <span>Nothing happens after I press Ctrl + Space</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                        <div class="gs-faq-answer">
+                            <div class="gs-faq-answer-inner">
+                                Make sure Toro is running — check for the icon in your system tray (click the ▲ arrow on the
+                                taskbar to reveal hidden icons). If the icon is not there, double-click <code>Toro.exe</code>
+                                again and wait 2–3 seconds. Also ensure no other application is using the
+                                <code>Ctrl + Space</code> shortcut.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gs-faq-item">
+                        <div class="gs-faq-question" onclick="this.parentElement.classList.toggle('open')">
+                            <span>I'm getting errors or the text isn't appearing</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                        <div class="gs-faq-answer">
+                            <div class="gs-faq-answer-inner">
+                                This can happen if you've hit the usage limit for your current AI model tier. Right-click
+                                the Toro tray icon, go to <strong>Models</strong>, and switch to <strong>Fast</strong> mode.
+                                The Fast tier has the highest request allowance and should resolve the issue immediately.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gs-faq-item">
+                        <div class="gs-faq-question" onclick="this.parentElement.classList.toggle('open')">
+                            <span>The text gets pasted in the wrong place</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                        <div class="gs-faq-answer">
+                            <div class="gs-faq-answer-inner">
+                                Toro pastes text at your current cursor position. Make sure your cursor is focused in the
+                                correct text field <em>before</em> pressing <code>Ctrl + Space</code>. Avoid clicking
+                                elsewhere while recording.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gs-faq-item">
+                        <div class="gs-faq-question" onclick="this.parentElement.classList.toggle('open')">
+                            <span>How do I quit or exit Toro?</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                        <div class="gs-faq-answer">
+                            <div class="gs-faq-answer-inner">
+                                Right-click the Toro icon in your system tray and select <strong>"Quit Toro"</strong>.
+                                This will gracefully shut down all background processes.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gs-faq-item">
+                        <div class="gs-faq-question" onclick="this.parentElement.classList.toggle('open')">
+                            <span>Can I change the keyboard shortcut?</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                        <div class="gs-faq-answer">
+                            <div class="gs-faq-answer-inner">
+                                Currently, the keyboard shortcut is fixed to <code>Ctrl + Space</code>. Custom hotkey
+                                configuration will be available in a future release.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ═══════════════════════════════════════════════════════════ -->
+            <!-- SECTION 6: Quick Recap                                   -->
+            <!-- ═══════════════════════════════════════════════════════════ -->
+            <div class="gs-section" id="gs-recap">
+                <div class="gs-section-header">
+                    <div class="gs-section-icon green">
+                        <i class="fa-solid fa-check-double"></i>
+                    </div>
+                    <h2>Quick Recap</h2>
+                </div>
+
+                <div class="gs-card">
+                    <p>
+                        <i class="fa-solid fa-circle-check" style="color: #34d399; margin-right: 0.4rem;"></i>
+                        <strong>SmartScreen:</strong> Click "More info" → "Run anyway". It's safe.
+                    </p>
+                    <p>
+                        <i class="fa-solid fa-circle-check" style="color: #34d399; margin-right: 0.4rem;"></i>
+                        <strong>No window on startup:</strong> Toro runs silently in your system tray.
+                    </p>
+                    <p>
+                        <i class="fa-solid fa-circle-check" style="color: #34d399; margin-right: 0.4rem;"></i>
+                        <strong>Shortcut:</strong> Hold <code>Ctrl + Space</code>, speak, release.
+                    </p>
+                    <p>
+                        <i class="fa-solid fa-circle-check" style="color: #34d399; margin-right: 0.4rem;"></i>
+                        <strong>Model switch:</strong> Right-click tray icon → Models → choose tier.
+                    </p>
+                    <p>
+                        <i class="fa-solid fa-circle-check" style="color: #34d399; margin-right: 0.4rem;"></i>
+                        <strong>Errors?</strong> Switch to Fast model for the highest usage limit.
+                    </p>
+                </div>
+            </div>
+
+            <!-- ─── Footer Actions ─── -->
+            <div class="gs-footer-actions">
+                <a href="/" class="gs-back-link" id="back-to-home">
+                    <i class="fa-solid fa-arrow-left"></i> Back to homepage
+                </a>
+                <a href="/thank-you.html" class="gs-download-link" id="gs-download-cta">
+                    <i class="fa-brands fa-windows"></i> Download Toro
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <span class="footer-logo"><img src="assets/icon.ico" alt="Toro Logo Icon"
+                        class="logo-img-icon footer-logo-img"> Toro</span>
+                <p>Speak at the speed of thought. Beautiful, AI-corrected global dictation designed for technical
+                    writing and communication.</p>
+            </div>
+            <div class="footer-right">
+                <div class="footer-col">
+                    <h4>Product</h4>
+                    <a href="/#features">Features</a>
+                    <a href="/#interactive-simulator">Live Demo</a>
+                    <a href="/thank-you.html">Downloads</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <a href="/getting-started.html">Getting Started</a>
+                    <a href="https://github.com/ramprasanth0/toro-app" target="_blank">GitHub Repository</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <a href="https://github.com/ramprasanth0/toro-app" class="github-footer-link"
+                aria-label="View Project on GitHub"><i class="fab fa-github"></i> GitHub</a>
+        </div>
+    </footer>
+</body>
+
+</html>
