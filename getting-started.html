@@ -43,8 +43,15 @@
         }
 
         @keyframes gsFadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .gs-hero-badge {
@@ -107,12 +114,35 @@
             flex-shrink: 0;
         }
 
-        .gs-section-icon.blue { background: rgba(99, 102, 241, 0.12); color: #818cf8; }
-        .gs-section-icon.amber { background: rgba(245, 158, 11, 0.12); color: #fbbf24; }
-        .gs-section-icon.cyan { background: rgba(6, 182, 212, 0.12); color: #22d3ee; }
-        .gs-section-icon.green { background: rgba(16, 185, 129, 0.12); color: #34d399; }
-        .gs-section-icon.rose { background: rgba(244, 63, 94, 0.12); color: #fb7185; }
-        .gs-section-icon.purple { background: rgba(168, 85, 247, 0.12); color: #c084fc; }
+        .gs-section-icon.blue {
+            background: rgba(99, 102, 241, 0.12);
+            color: #818cf8;
+        }
+
+        .gs-section-icon.amber {
+            background: rgba(245, 158, 11, 0.12);
+            color: #fbbf24;
+        }
+
+        .gs-section-icon.cyan {
+            background: rgba(6, 182, 212, 0.12);
+            color: #22d3ee;
+        }
+
+        .gs-section-icon.green {
+            background: rgba(16, 185, 129, 0.12);
+            color: #34d399;
+        }
+
+        .gs-section-icon.rose {
+            background: rgba(244, 63, 94, 0.12);
+            color: #fb7185;
+        }
+
+        .gs-section-icon.purple {
+            background: rgba(168, 85, 247, 0.12);
+            color: #c084fc;
+        }
 
         .gs-section-header h2 {
             font-family: 'Plus Jakarta Sans', sans-serif;
@@ -144,7 +174,7 @@
             margin-bottom: 0;
         }
 
-        .gs-card p + p {
+        .gs-card p+p {
             margin-top: 0.75rem;
         }
 
@@ -200,7 +230,7 @@
             line-height: 1.7;
         }
 
-        .gs-warning-callout p + p {
+        .gs-warning-callout p+p {
             margin-top: 0.6rem;
         }
 
@@ -304,9 +334,11 @@
         .gs-model-card.fast::before {
             background: linear-gradient(90deg, #22d3ee, #06b6d4);
         }
+
         .gs-model-card.balanced::before {
             background: linear-gradient(90deg, #a78bfa, #6366f1);
         }
+
         .gs-model-card.accurate::before {
             background: linear-gradient(90deg, #f472b6, #ec4899);
         }
@@ -316,9 +348,17 @@
             margin-bottom: 0.75rem;
         }
 
-        .gs-model-card.fast .gs-model-icon { color: #22d3ee; }
-        .gs-model-card.balanced .gs-model-icon { color: #a78bfa; }
-        .gs-model-card.accurate .gs-model-icon { color: #f472b6; }
+        .gs-model-card.fast .gs-model-icon {
+            color: #22d3ee;
+        }
+
+        .gs-model-card.balanced .gs-model-icon {
+            color: #a78bfa;
+        }
+
+        .gs-model-card.accurate .gs-model-icon {
+            color: #f472b6;
+        }
 
         .gs-model-name {
             font-family: 'Plus Jakarta Sans', sans-serif;
@@ -350,11 +390,13 @@
             background: rgba(34, 211, 238, 0.1);
             border: 1px solid rgba(34, 211, 238, 0.2);
         }
+
         .gs-model-card.balanced .gs-model-tag {
             color: #a78bfa;
             background: rgba(167, 139, 250, 0.1);
             border: 1px solid rgba(167, 139, 250, 0.2);
         }
+
         .gs-model-card.accurate .gs-model-tag {
             color: #f472b6;
             background: rgba(244, 114, 182, 0.1);
@@ -664,9 +706,17 @@
             font-size: 1.05rem;
         }
 
-        .gs-limits-count.high { color: #22d3ee; }
-        .gs-limits-count.mid { color: #a78bfa; }
-        .gs-limits-count.low { color: #f472b6; }
+        .gs-limits-count.high {
+            color: #22d3ee;
+        }
+
+        .gs-limits-count.mid {
+            color: #a78bfa;
+        }
+
+        .gs-limits-count.low {
+            color: #f472b6;
+        }
 
         .gs-limits-bar-track {
             width: 100%;
@@ -687,10 +737,12 @@
             width: 100%;
             background: linear-gradient(90deg, #22d3ee, #06b6d4);
         }
+
         .gs-limits-bar.mid {
             width: 40%;
             background: linear-gradient(90deg, #a78bfa, #6366f1);
         }
+
         .gs-limits-bar.low {
             width: 20%;
             background: linear-gradient(90deg, #f472b6, #ec4899);
@@ -716,21 +768,53 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .gs-hero h1 { font-size: 2rem; }
-            .gs-models-grid { grid-template-columns: 1fr; }
-            .gs-section-header h2 { font-size: 1.25rem; }
+            .gs-hero h1 {
+                font-size: 2rem;
+            }
+
+            .gs-models-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gs-section-header h2 {
+                font-size: 1.25rem;
+            }
+
             .gs-limits-table td,
-            .gs-limits-table thead th { padding: 0.75rem 1rem; }
-            .gs-limits-bar-track { max-width: 120px; }
+            .gs-limits-table thead th {
+                padding: 0.75rem 1rem;
+            }
+
+            .gs-limits-bar-track {
+                max-width: 120px;
+            }
         }
 
         @media (max-width: 576px) {
-            .gs-hero h1 { font-size: 1.65rem; }
-            .gs-page { padding-left: 1.25rem; padding-right: 1.25rem; }
-            .gs-card { padding: 1.25rem 1.35rem; }
-            .gs-warning-callout { padding: 1.35rem; }
-            .gs-footer-actions { flex-direction: column; }
-            .gs-limits-bar-track { display: none; }
+            .gs-hero h1 {
+                font-size: 1.65rem;
+            }
+
+            .gs-page {
+                padding-left: 1.25rem;
+                padding-right: 1.25rem;
+            }
+
+            .gs-card {
+                padding: 1.25rem 1.35rem;
+            }
+
+            .gs-warning-callout {
+                padding: 1.35rem;
+            }
+
+            .gs-footer-actions {
+                flex-direction: column;
+            }
+
+            .gs-limits-bar-track {
+                display: none;
+            }
         }
     </style>
 </head>
@@ -772,7 +856,8 @@
                     <i class="fa-solid fa-flask"></i> Tester Guide
                 </div>
                 <h1>Getting Started with Toro</h1>
-                <p>Everything you need to know to install, configure, and start using Toro on your Windows machine. This guide is written specifically for our early testers.</p>
+                <p>Everything you need to know to install, configure, and start using Toro on your Windows machine. This
+                    guide is written specifically for our early testers.</p>
             </div>
 
             <!-- ═══════════════════════════════════════════════════════════ -->
@@ -793,11 +878,13 @@
                     </div>
                     <p>
                         When you run <strong>Toro.exe</strong> for the first time, Windows may display a blue
-                        <strong>"Windows protected your PC"</strong> pop-up. This is called <strong>Windows SmartScreen</strong>
+                        <strong>"Windows protected your PC"</strong> pop-up. This is called <strong>Windows
+                            SmartScreen</strong>
                         and it appears for any new application that hasn't been widely installed yet.
                     </p>
                     <p>
-                        <strong>Toro is 100% safe.</strong> It has been built and tested by our development team and is trusted
+                        <strong>Toro is 100% safe.</strong> It has been built and tested by our development team and is
+                        trusted
                         by our community of testers.
                         No data is collected, stored, or sent anywhere beyond the AI transcription service.
                     </p>
@@ -806,7 +893,8 @@
                         <div class="gs-step-mini">
                             <span class="gs-step-mini-num">1</span>
                             <span class="gs-step-mini-text">
-                                When the blue pop-up appears, click <strong>"More info"</strong> at the bottom of the dialog.
+                                When the blue pop-up appears, click <strong>"More info"</strong> at the bottom of the
+                                dialog.
                             </span>
                         </div>
                         <div class="gs-step-mini">
@@ -843,17 +931,21 @@
 
                 <div class="gs-card">
                     <p>
-                        Toro does not have a front-end window or GUI yet — it is a <strong>background utility</strong> that runs
-                        in your system tray. Because of this, <strong>Windows will not show a startup notification</strong>
+                        Toro does not have a front-end window or GUI yet — it is a <strong>background utility</strong>
+                        that runs
+                        in your system tray. Because of this, <strong>Windows will not show a startup
+                            notification</strong>
                         when you launch the app.
                     </p>
                     <p>
-                        After double-clicking <code>Toro.exe</code>, the app takes approximately <strong>2–3 seconds</strong> to
+                        After double-clicking <code>Toro.exe</code>, the app takes approximately <strong>2–3
+                            seconds</strong> to
                         initialize. Once ready, the <strong>Toro icon</strong> will quietly appear in your
                         <strong>system tray</strong> (the small icon area near the clock on your taskbar).
                     </p>
                     <p>
-                        If you don't see it immediately, click the <strong>▲ (up arrow)</strong> on your taskbar to reveal
+                        If you don't see it immediately, click the <strong>▲ (up arrow)</strong> on your taskbar to
+                        reveal
                         hidden icons — Toro will be there.
                     </p>
 
@@ -918,14 +1010,15 @@
                     <div class="gs-section-icon purple">
                         <i class="fa-solid fa-sliders"></i>
                     </div>
-                    <h2>AI Model Tiers</h2>
+                    <h2>AI Correction Modes</h2>
                 </div>
 
                 <div class="gs-card" style="padding-bottom: 1.25rem;">
                     <p>
-                        Toro offers three AI correction modes. You can switch between them by <strong>right-clicking</strong>
-                        the Toro icon in your system tray and selecting <strong>Models</strong>. Each tier uses a different
-                        AI model with varying speed, accuracy, and usage limits.
+                        Toro offers three AI correction modes. You can switch between them by
+                        <strong>right-clicking</strong>
+                        the Toro icon in your system tray and selecting <strong>Modes</strong>. Each mode balances
+                        speed, accuracy, and daily usage limits differently.
                     </p>
                 </div>
 
@@ -933,19 +1026,21 @@
                     <div class="gs-model-card fast">
                         <div class="gs-model-icon"><i class="fa-solid fa-bolt"></i></div>
                         <div class="gs-model-name">⚡ Fast</div>
-                        <div class="gs-model-desc">Powered by Flash Lite. Quickest response time — great for rapid-fire notes and casual messages.</div>
+                        <div class="gs-model-desc">Quickest response time — great for wide usecase, Recommended for most
+                            users.</div>
                         <span class="gs-model-tag">50 requests / day</span>
                     </div>
                     <div class="gs-model-card balanced">
                         <div class="gs-model-icon"><i class="fa-solid fa-scale-balanced"></i></div>
                         <div class="gs-model-name">⚖️ Balanced</div>
-                        <div class="gs-model-desc">Powered by 2.5 Flash. Best mix of speed and formatting quality. Recommended for most users.</div>
+                        <div class="gs-model-desc">Best mix of speed and formatting quality.</div>
                         <span class="gs-model-tag">20 requests / day</span>
                     </div>
                     <div class="gs-model-card accurate">
                         <div class="gs-model-icon"><i class="fa-solid fa-crosshairs"></i></div>
                         <div class="gs-model-name">🎯 Accurate</div>
-                        <div class="gs-model-desc">Powered by 3 Flash. Highest formatting precision — best for technical writing and documentation.</div>
+                        <div class="gs-model-desc">Highest formatting precision — best for technical writing and
+                            documentation.</div>
                         <span class="gs-model-tag">10 requests / day</span>
                     </div>
                 </div>
@@ -960,7 +1055,6 @@
                         <thead>
                             <tr>
                                 <th>Mode</th>
-                                <th>AI Model</th>
                                 <th>Daily Limit</th>
                                 <th></th>
                             </tr>
@@ -970,13 +1064,9 @@
                                 <td>
                                     <div class="gs-limits-mode">
                                         <span class="gs-limits-mode-emoji">⚡</span>
-                                        <div>
-                                            Fast
-                                            <span class="gs-limits-mode-sub">Flash Lite</span>
-                                        </div>
+                                        <div>Fast</div>
                                     </div>
                                 </td>
-                                <td style="color: rgba(255,255,255,0.5); font-size: 0.88rem;">Gemini Flash Lite</td>
                                 <td><span class="gs-limits-count high">50 requests</span></td>
                                 <td>
                                     <div class="gs-limits-bar-track">
@@ -988,13 +1078,9 @@
                                 <td>
                                     <div class="gs-limits-mode">
                                         <span class="gs-limits-mode-emoji">⚖️</span>
-                                        <div>
-                                            Balanced
-                                            <span class="gs-limits-mode-sub">2.5 Flash</span>
-                                        </div>
+                                        <div>Balanced</div>
                                     </div>
                                 </td>
-                                <td style="color: rgba(255,255,255,0.5); font-size: 0.88rem;">Gemini 2.5 Flash</td>
                                 <td><span class="gs-limits-count mid">20 requests</span></td>
                                 <td>
                                     <div class="gs-limits-bar-track">
@@ -1006,13 +1092,9 @@
                                 <td>
                                     <div class="gs-limits-mode">
                                         <span class="gs-limits-mode-emoji">🎯</span>
-                                        <div>
-                                            Accurate
-                                            <span class="gs-limits-mode-sub">3 Flash</span>
-                                        </div>
+                                        <div>Accurate</div>
                                     </div>
                                 </td>
-                                <td style="color: rgba(255,255,255,0.5); font-size: 0.88rem;">Gemini 3 Flash</td>
                                 <td><span class="gs-limits-count low">10 requests</span></td>
                                 <td>
                                     <div class="gs-limits-bar-track">
@@ -1024,7 +1106,8 @@
                     </table>
                     <div class="gs-limits-note">
                         <i class="fa-solid fa-circle-info"></i>
-                        <span>Limits reset every 24 hours. If you hit the cap on one tier, switch to a higher-limit mode to keep working.</span>
+                        <span>Limits reset every 24 hours. If you hit the cap on one tier, switch to a higher-limit mode
+                            to keep working.</span>
                     </div>
                 </div>
 
@@ -1057,8 +1140,10 @@
                         </div>
                         <div class="gs-faq-answer">
                             <div class="gs-faq-answer-inner">
-                                Make sure Toro is running — check for the icon in your system tray (click the ▲ arrow on the
-                                taskbar to reveal hidden icons). If the icon is not there, double-click <code>Toro.exe</code>
+                                Make sure Toro is running — check for the icon in your system tray (click the ▲ arrow on
+                                the
+                                taskbar to reveal hidden icons). If the icon is not there, double-click
+                                <code>Toro.exe</code>
                                 again and wait 2–3 seconds. Also ensure no other application is using the
                                 <code>Ctrl + Space</code> shortcut.
                             </div>
@@ -1072,9 +1157,12 @@
                         </div>
                         <div class="gs-faq-answer">
                             <div class="gs-faq-answer-inner">
-                                This can happen if you've hit the usage limit for your current AI model tier. Right-click
-                                the Toro tray icon, go to <strong>Models</strong>, and switch to <strong>Fast</strong> mode.
-                                The Fast tier has the highest request allowance and should resolve the issue immediately.
+                                This can happen if you've hit the usage limit for your current AI model tier.
+                                Right-click
+                                the Toro tray icon, go to <strong>Models</strong>, and switch to <strong>Fast</strong>
+                                mode.
+                                The Fast tier has the highest request allowance and should resolve the issue
+                                immediately.
                             </div>
                         </div>
                     </div>
@@ -1086,7 +1174,8 @@
                         </div>
                         <div class="gs-faq-answer">
                             <div class="gs-faq-answer-inner">
-                                Toro pastes text at your current cursor position. Make sure your cursor is focused in the
+                                Toro pastes text at your current cursor position. Make sure your cursor is focused in
+                                the
                                 correct text field <em>before</em> pressing <code>Ctrl + Space</code>. Avoid clicking
                                 elsewhere while recording. <strong>Also note:</strong> your formatted text is always
                                 saved to your clipboard, so you can press <code>Ctrl + V</code> to paste it wherever
@@ -1102,7 +1191,8 @@
                         </div>
                         <div class="gs-faq-answer">
                             <div class="gs-faq-answer-inner">
-                                Don't worry — <strong>your text is not lost.</strong> Toro always copies the formatted text
+                                Don't worry — <strong>your text is not lost.</strong> Toro always copies the formatted
+                                text
                                 to your clipboard. Simply press <code>Ctrl + V</code> in any text field to paste it.
                                 This also means you can reuse the same text multiple times by pasting again.
                             </div>
@@ -1171,7 +1261,8 @@
                     </p>
                     <p>
                         <i class="fa-solid fa-circle-check" style="color: #34d399; margin-right: 0.4rem;"></i>
-                        <strong>Clipboard backup:</strong> Text is always saved to clipboard — press <code>Ctrl + V</code> to paste anytime.
+                        <strong>Clipboard backup:</strong> Text is always saved to clipboard — press
+                        <code>Ctrl + V</code> to paste anytime.
                     </p>
                 </div>
             </div>
